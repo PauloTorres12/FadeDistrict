@@ -16,32 +16,32 @@ const galleryItems: GalleryItem[] = [
   {
     id: '1', type: 'image',
     src: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&q=80',
-    alt: 'Fade Clásico', span: 'col-span-2 row-span-2',
+    alt: 'Fade Clásico', span: 'col-span-2 md:col-span-2 row-span-2 md:row-span-2',
   },
   {
     id: '2', type: 'image',
     src: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80',
-    alt: 'Corte Texturizado', span: 'col-span-1 row-span-1',
+    alt: 'Corte Texturizado', span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1',
   },
   {
     id: '3', type: 'image',
     src: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80',
-    alt: 'El Proceso', span: 'col-span-1 row-span-2',
+    alt: 'El Proceso', span: 'col-span-1 md:col-span-1 row-span-2 md:row-span-2',
   },
   {
     id: '4', type: 'image',
     src: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=80',
-    alt: 'Diseño con Navaja', span: 'col-span-1 row-span-1',
+    alt: 'Diseño con Navaja', span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1',
   },
   {
     id: '5', type: 'image',
     src: 'https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?w=600&q=80',
-    alt: 'Escultura de Barba', span: 'col-span-1 row-span-1',
+    alt: 'Escultura de Barba', span: 'col-span-2 md:col-span-1 row-span-1 md:row-span-1',
   },
   {
     id: '6', type: 'image',
     src: 'https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=800&q=80',
-    alt: 'Fade Cero', span: 'col-span-2 row-span-1',
+    alt: 'Fade Cero', span: 'col-span-2 md:col-span-3 row-span-1 md:row-span-1',
   },
 ];
 
@@ -106,7 +106,7 @@ export default function Gallery() {
               <img
                 src={item.src}
                 alt={item.alt}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
               {/* Dark overlay on hover */}

@@ -185,7 +185,7 @@ export default function Booking() {
           <AnimatePresence mode="wait">
             {step === 'service' && (
               <motion.div key="service" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4 }}>
-                <h3 className="text-xl font-semibold font-[family-name:var(--font-syne)] mb-6 text-center py-2" style={{ lineHeight: '1.4' }}>
+                <h3 className="text-xl font-semibold font-[family-name:var(--font-syne)] mb-6 text-center pb-2 pt-1" style={{ lineHeight: '1.5' }}>
                   Elegí tu Servicio
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -196,7 +196,7 @@ export default function Booking() {
                       className="text-left p-6 border border-black/5 hover:border-black/15 bg-black/[0.01] hover:bg-black/[0.03] transition-all duration-300 group"
                     >
                       <div className="flex items-start justify-between mb-3">
-                        <p className="font-medium font-[family-name:var(--font-syne)] text-base leading-normal group-hover:text-black transition-colors">
+                        <p className="font-medium font-[family-name:var(--font-syne)] text-base group-hover:text-black transition-colors pb-1.5" style={{ lineHeight: '1.5' }}>
                           {service.name}
                         </p>
                         <Scissors size={14} className="text-black/15 group-hover:text-black/40 transition-colors mt-0.5" />
