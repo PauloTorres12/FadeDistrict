@@ -33,7 +33,7 @@ export default function Hero() {
     }),
   };
 
-  const title = 'FADE DISTRICT';
+  const title = 'FADE DISTRIC';
 
   return (
     <section
@@ -72,7 +72,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isMounted ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="text-xs md:text-sm tracking-[0.4em] uppercase text-black/30 mb-6 md:mb-8 font-[family-name:var(--font-space)]"
         >
           Barbería Premium
@@ -105,7 +105,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isMounted ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 1.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="text-sm md:text-base text-black/35 max-w-sm mx-auto mb-16 md:mb-20 font-[family-name:var(--font-space)] leading-relaxed text-center"
         >
           Donde la precisión se encuentra con el arte.
@@ -134,7 +134,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isMounted ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a href="#turnos" className="btn-primary w-full sm:w-auto">
