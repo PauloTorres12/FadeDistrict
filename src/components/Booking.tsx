@@ -218,7 +218,7 @@ export default function Booking() {
         </motion.div>
 
         {/* Progress Steps */}
-        <div className="flex items-center gap-1.5 max-w-md w-full mb-8">
+        <div className="flex items-center gap-1.5 max-w-md w-full mb-12 md:mb-16">
           {steps.map((s, i) => {
             const currentIdx = steps.indexOf(step);
             const isProcessingOrSuccess = step === 'processing' || step === 'success';
