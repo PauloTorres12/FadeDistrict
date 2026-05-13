@@ -20,9 +20,6 @@ export const metadata: Metadata = {
   description:
     "Donde la precisión se encuentra con el arte. Barbería premium que construye confianza, un fade a la vez. Reservá tu turno hoy.",
   keywords: ["barbería", "fade", "corte", "premium", "Buenos Aires", "barbershop", "turnos"],
-  icons: {
-    icon: "/assets/logo-fadedistrict-enpng.png",
-  },
   openGraph: {
     title: "Fade Distric",
     description: "Donde la precisión se encuentra con el arte. Construyendo confianza, un fade a la vez.",
