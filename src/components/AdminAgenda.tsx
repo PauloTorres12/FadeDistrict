@@ -293,7 +293,7 @@ export default function AdminAgenda() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-5 md:p-6 border-b border-black/5">
+              <div className="flex items-center justify-between px-6 py-5 md:px-8 md:py-6 border-b border-black/5">
                 <div>
                   <h3 className="text-sm md:text-base font-semibold font-[family-name:var(--font-syne)]">{editingApt.client_name}</h3>
                   <p className="text-[11px] text-black/35 mt-0.5">
@@ -304,7 +304,7 @@ export default function AdminAgenda() {
                 <button onClick={closeModal} className="p-1.5 text-black/30 hover:text-black/70 transition-colors"><X size={18} /></button>
               </div>
 
-              <div className="p-5 md:p-6">
+              <div className="px-6 py-5 md:px-8 md:py-6">
                 {/* MENU */}
                 {editMode === 'menu' && (
                   <div className="flex flex-col gap-3">

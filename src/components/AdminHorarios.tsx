@@ -131,7 +131,7 @@ export default function AdminHorarios() {
         </h3>
         <p className="text-xs md:text-sm text-black/30 text-center mb-8">Seleccioná un día para agregar o quitar horarios</p>
 
-        <div className="flex overflow-x-auto md:grid md:grid-cols-7 gap-3 md:gap-4 pb-2 md:pb-0 -mx-2 px-2 md:mx-0 md:px-0 scrollbar-hide">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-7 gap-3 md:gap-4 pb-2 pt-4 md:pb-0 md:pt-0 -mx-2 px-2 md:mx-0 md:px-0 scrollbar-hide">
           {dates.map((date) => {
             const key = formatDateKey(date);
             const isSelected = key === dateKey;
@@ -226,7 +226,7 @@ export default function AdminHorarios() {
           })}
         </div>
 
-        <p className="text-xs text-black/25 text-center mt-8">
+        <p className="text-xs text-black/25 text-center mt-10 md:mt-12">
           Tocá un horario para habilitarlo o deshabilitarlo. Los horarios reservados no se pueden quitar.
         </p>
       </div>
