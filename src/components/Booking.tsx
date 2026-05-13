@@ -218,7 +218,7 @@ export default function Booking() {
         </motion.div>
 
         {/* Progress Steps */}
-        <div className="flex items-center gap-1.5 max-w-md w-full mb-12 md:mb-16">
+        <div className="flex items-center gap-1.5 max-w-md w-full" style={{ marginBottom: '10px' }}>
           {steps.map((s, i) => {
             const currentIdx = steps.indexOf(step);
             const isProcessingOrSuccess = step === 'processing' || step === 'success';
@@ -228,18 +228,16 @@ export default function Booking() {
             return (
               <div key={s} className={`flex items-center gap-1.5 ${i < steps.length - 1 ? 'flex-1' : 'flex-none'}`}>
                 <div
-                  className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 flex-shrink-0 ${
-                    isActive
-                      ? 'bg-black scale-110'
-                      : isPast
+                  className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 flex-shrink-0 ${isActive
+                    ? 'bg-black scale-110'
+                    : isPast
                       ? 'bg-black/40'
                       : 'bg-black/10'
-                  }`}
+                    }`}
                 />
                 {i < steps.length - 1 && (
-                  <div className={`flex-1 h-px transition-all duration-300 ${
-                    isPast ? 'bg-black/20' : 'bg-black/5'
-                  }`} />
+                  <div className={`flex-1 h-px transition-all duration-300 ${isPast ? 'bg-black/20' : 'bg-black/5'
+                    }`} />
                 )}
               </div>
             );
@@ -289,8 +287,8 @@ export default function Booking() {
                           className={`aspect-square flex items-center justify-center text-xs transition-all duration-200 relative
                             ${isPast || !hasSlots ? 'text-black/10 cursor-not-allowed'
                               : isSelected ? 'bg-black text-white font-semibold'
-                              : isToday ? 'border border-black/25 text-black hover:bg-black/5'
-                              : 'text-black/50 hover:bg-black/5 hover:text-black'}`}
+                                : isToday ? 'border border-black/25 text-black hover:bg-black/5'
+                                  : 'text-black/50 hover:bg-black/5 hover:text-black'}`}
                         >
                           {day}
                           {hasSlots && !isPast && (

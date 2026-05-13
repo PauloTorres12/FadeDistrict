@@ -226,7 +226,7 @@ export default function AdminHorarios() {
           })}
         </div>
 
-        <p className="text-xs text-black/25 text-center" style={{ marginTop: '48px' }}>
+        <p className="text-xs text-black/25 text-center" style={{ marginTop: '24px' }}>
           Tocá un horario para habilitarlo o deshabilitarlo. Los horarios reservados no se pueden quitar.
         </p>
       </div>

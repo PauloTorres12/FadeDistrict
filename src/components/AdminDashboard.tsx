@@ -147,9 +147,9 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="container-fluid max-w-5xl mx-auto" style={{ paddingTop: '2.5rem', paddingBottom: '3.5rem' }}>
+      <div className="container-fluid max-w-5xl mx-auto" style={{ paddingTop: '10px', paddingBottom: '3.5rem' }}>
         {/* Tabs */}
-        <div className="w-full flex justify-center" style={{ marginBottom: '2rem' }}>
+        <div className="w-full flex justify-center" style={{ marginBottom: '10px' }}>
           <div className="flex items-center gap-1 md:gap-2 bg-black/5 p-1 md:p-1.5 px-1 md:px-2 border border-black/10 shadow-sm">
             <button onClick={() => setActiveTab('schedule')}
               className={`px-4 md:px-8 py-2.5 md:py-3 text-xs md:text-base font-semibold tracking-wide transition-all duration-300 ${activeTab === 'schedule' ? 'bg-black text-white shadow-md' : 'text-black/50 hover:text-black hover:bg-black/5'}`}>
