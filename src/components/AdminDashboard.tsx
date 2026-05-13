@@ -24,9 +24,29 @@ export default function AdminDashboard() {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
         setIsLoggedIn(true);
+        // Ejecutar limpieza automática de base de datos
+        cleanupOldData();
       }
       setAuthLoading(false);
     };
+
+    const cleanupOldData = async () => {
+      // Calculamos la fecha de hace 7 días
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - 7);
+      const cutoffString = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, '0')}-${String(cutoff.getDate()).padStart(2, '0')}`;
+
+      try {
+        // Borrar turnos viejos
+        await supabase.from('appointments').delete().lt('date', cutoffString);
+        // Borrar horarios viejos
+        await supabase.from('available_slots').delete().lt('date', cutoffString);
+        console.log('Limpieza automática: registros anteriores a', cutoffString, 'eliminados.');
+      } catch (e) {
+        console.error('Error en limpieza automática:', e);
+      }
+    };
+
     checkSession();
   }, []);
 
