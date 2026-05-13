@@ -23,33 +23,39 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-2xl gap-8">
-          <motion.div
+          <motion.a
+            href="https://www.instagram.com/fadedistric_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0 }}
-            className="glass-card p-6 md:p-10 group hover:bg-black/[0.03] transition-all duration-500"
+            className="glass-card p-6 md:p-10 group hover:bg-black/[0.03] transition-all duration-500 cursor-pointer"
           >
             <Camera size={20} className="text-black/20 mb-4 md:mb-5 group-hover:text-black/50 transition-colors" />
             <h3 className="text-sm md:text-base font-semibold font-[family-name:var(--font-syne)] mb-2 md:mb-3">Instagram</h3>
             <p className="text-xs md:text-sm text-black/35 leading-relaxed font-[family-name:var(--font-space)]">
-              @fadedistrict<br />Seguí nuestro trabajo
+              @fadedistric_<br />Seguí nuestro trabajo
             </p>
-          </motion.div>
+          </motion.a>
 
-          <motion.div
+          <motion.a
+            href="https://www.tiktok.com/@alejo.zuriel_"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass-card p-6 md:p-10 group hover:bg-black/[0.03] transition-all duration-500"
+            className="glass-card p-6 md:p-10 group hover:bg-black/[0.03] transition-all duration-500 cursor-pointer"
           >
             <Play size={20} className="text-black/20 mb-4 md:mb-5 group-hover:text-black/50 transition-colors" />
             <h3 className="text-sm md:text-base font-semibold font-[family-name:var(--font-syne)] mb-2 md:mb-3">TikTok</h3>
             <p className="text-xs md:text-sm text-black/35 leading-relaxed font-[family-name:var(--font-space)]">
-              @fadedistrict<br />Contenido exclusivo
+              @alejo.zuriel_<br />Contenido exclusivo
             </p>
-          </motion.div>
+          </motion.a>
         </div>
       </div>
     </section>

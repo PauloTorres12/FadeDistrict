@@ -125,13 +125,13 @@ export default function AdminHorarios() {
     <motion.div key="horarios" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }}>
 
       {/* Date Selector - 2 week strip */}
-      <div className="glass-card p-5 md:p-12 mb-6 md:mb-10">
-        <h3 className="text-sm md:text-lg font-semibold font-[family-name:var(--font-syne)] mb-1 text-center">
+      <div className="glass-card p-6 md:p-12 mb-8 md:mb-12">
+        <h3 className="text-sm md:text-lg font-semibold font-[family-name:var(--font-syne)] mb-2 text-center">
           Próximos 14 días
         </h3>
-        <p className="text-xs md:text-sm text-black/30 text-center mb-6">Seleccioná un día para agregar o quitar horarios</p>
+        <p className="text-xs md:text-sm text-black/30 text-center mb-8">Seleccioná un día para agregar o quitar horarios</p>
 
-        <div className="flex overflow-x-auto md:grid md:grid-cols-7 gap-2 md:gap-4 pb-2 md:pb-0 -mx-2 px-2 md:mx-0 md:px-0 scrollbar-hide">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-7 gap-3 md:gap-4 pb-2 md:pb-0 -mx-2 px-2 md:mx-0 md:px-0 scrollbar-hide">
           {dates.map((date) => {
             const key = formatDateKey(date);
             const isSelected = key === dateKey;
@@ -142,7 +142,7 @@ export default function AdminHorarios() {
               <button
                 key={key}
                 onClick={() => setSelectedDate(date)}
-                className={`relative flex flex-col items-center py-3 md:py-4 px-3 md:px-2 transition-all duration-200 flex-shrink-0 min-w-[56px] md:min-w-0 ${
+                className={`relative flex flex-col items-center py-4 md:py-5 px-4 md:px-3 transition-all duration-200 flex-shrink-0 min-w-[64px] md:min-w-0 ${
                   isSelected
                     ? 'bg-black text-white shadow-md scale-105'
                     : 'hover:bg-black/5 text-black/60'
@@ -154,7 +154,7 @@ export default function AdminHorarios() {
                 <span className={`text-lg font-bold font-[family-name:var(--font-syne)] ${isSelected ? 'text-white' : ''}`}>
                   {date.getDate()}
                 </span>
-                <span className={`text-[9px] mt-0.5 ${isSelected ? 'text-white/50' : 'text-black/20'}`}>
+                <span className={`text-[9px] mt-1 ${isSelected ? 'text-white/50' : 'text-black/20'}`}>
                   {monthNames[date.getMonth()].slice(0, 3)}
                 </span>
                 {slotCount > 0 && (
@@ -174,8 +174,8 @@ export default function AdminHorarios() {
       </div>
 
       {/* Time Slots Manager */}
-      <div className="glass-card p-5 md:p-12">
-        <div className="flex items-center justify-between mb-6">
+      <div className="glass-card p-6 md:p-12">
+        <div className="flex items-center justify-between mb-8">
           <div>
             <h3 className="text-base md:text-lg font-semibold font-[family-name:var(--font-syne)]">
               {dayNames[selectedDate.getDay()]} {selectedDate.getDate()} de {monthNames[selectedDate.getMonth()]}
@@ -187,7 +187,7 @@ export default function AdminHorarios() {
           {saving && <Loader2 size={20} className="animate-spin text-black/30" />}
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2.5">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
           {HOURS.map((hour) => {
             const isActive = activeTimesForDay.has(hour);
             const slot = slots.find((s) => s.time.slice(0, 5) === hour);
@@ -205,7 +205,7 @@ export default function AdminHorarios() {
                   }
                 }}
                 disabled={saving || isBooked}
-                className={`relative py-3.5 md:py-5 px-3 md:px-4 text-xs md:text-base font-medium transition-all duration-200 flex flex-col items-center gap-1 md:gap-1.5 ${
+                className={`relative py-4 md:py-5 px-4 md:px-4 text-xs md:text-base font-medium transition-all duration-200 flex flex-col items-center gap-1.5 md:gap-2 ${
                   isBooked
                     ? 'bg-red-50 border border-red-200 text-red-400 cursor-not-allowed'
                     : isActive
@@ -226,7 +226,7 @@ export default function AdminHorarios() {
           })}
         </div>
 
-        <p className="text-xs text-black/25 text-center mt-6">
+        <p className="text-xs text-black/25 text-center mt-8">
           Tocá un horario para habilitarlo o deshabilitarlo. Los horarios reservados no se pueden quitar.
         </p>
       </div>

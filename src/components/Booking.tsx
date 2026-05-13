@@ -38,6 +38,7 @@ export default function Booking() {
   // Client info
   const [clientName, setClientName] = useState('');
   const [clientPhone, setClientPhone] = useState('');
+  const [phoneError, setPhoneError] = useState('');
 
   // Slots from Supabase
   const [availableSlots, setAvailableSlots] = useState<AvailableSlot[]>([]);
@@ -129,8 +130,25 @@ export default function Booking() {
     setStep('info');
   };
 
+  /* Validar teléfono argentino: 10 dígitos (sin +54, sin 0) */
+  const isValidPhone = (phone: string) => {
+    const digits = phone.replace(/\D/g, '');
+    return digits.length === 10;
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setClientPhone(value);
+    if (value.trim() && !isValidPhone(value)) {
+      setPhoneError('Ingresá 10 dígitos (ej: 11 1234-5678)');
+    } else {
+      setPhoneError('');
+    }
+  };
+
+  const canContinue = clientName.trim().length >= 2 && isValidPhone(clientPhone);
+
   const handleConfirm = async () => {
-    if (!clientName.trim() || !selectedSlotId || !selectedDate) return;
+    if (!canContinue || !selectedSlotId || !selectedDate) return;
 
     setStep('processing');
 
@@ -346,14 +364,17 @@ export default function Booking() {
                     <input
                       type="tel"
                       value={clientPhone}
-                      onChange={(e) => setClientPhone(e.target.value)}
-                      className="w-full bg-black/[0.02] border border-black/8 px-4 py-3.5 md:py-3 text-base md:text-sm text-black outline-none focus:border-black/20 transition-colors font-[family-name:var(--font-space)] rounded-none appearance-none"
+                      onChange={(e) => handlePhoneChange(e.target.value)}
+                      className={`w-full bg-black/[0.02] border px-4 py-3.5 md:py-3 text-base md:text-sm text-black outline-none transition-colors font-[family-name:var(--font-space)] rounded-none appearance-none ${phoneError ? 'border-red-300 focus:border-red-400' : 'border-black/8 focus:border-black/20'}`}
                       placeholder="Ej: 11 1234-5678"
                     />
+                    {phoneError && (
+                      <p className="text-[10px] text-red-400 mt-1">{phoneError}</p>
+                    )}
                   </div>
                   <button
                     onClick={() => setStep('confirm')}
-                    disabled={!clientName.trim() || !clientPhone.trim()}
+                    disabled={!canContinue}
                     className="btn-primary w-full mt-4 disabled:opacity-30 disabled:cursor-not-allowed"
                   >
                     Continuar

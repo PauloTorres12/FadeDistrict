@@ -267,9 +267,14 @@ export default function AdminGallery() {
         })}
       </div>
 
-      <p className="text-[10px] text-black/20 text-center mt-4 font-[family-name:var(--font-space)]">
-        Solo 6 archivos se almacenan — cada posición se sobreescribe al subir uno nuevo.
-      </p>
+      <div className="text-center mt-6">
+        <p className="text-[10px] text-black/20 font-[family-name:var(--font-space)]">
+          Solo 6 archivos se almacenan
+        </p>
+        <p className="text-[10px] text-black/20 font-[family-name:var(--font-space)] mt-1">
+          Cada posición se sobreescribe al subir uno nuevo.
+        </p>
+      </div>
 
       {/* Modal de recorte — con aspect ratio proporcional a la posición */}
       {cropImage && (

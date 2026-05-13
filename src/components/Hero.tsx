@@ -21,14 +21,14 @@ export default function Hero() {
   }, []);
 
   const letterVariants = {
-    hidden: { opacity: 0, y: 80 },
+    hidden: { opacity: 0, y: 60 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.5 + i * 0.04,
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+        delay: 0.15 + i * 0.035,
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       },
     }),
   };
