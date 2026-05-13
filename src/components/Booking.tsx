@@ -39,6 +39,7 @@ export default function Booking() {
   const [clientName, setClientName] = useState('');
   const [clientPhone, setClientPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
+  const [spamError, setSpamError] = useState('');
 
   // Slots from Supabase
   const [availableSlots, setAvailableSlots] = useState<AvailableSlot[]>([]);
@@ -150,6 +151,17 @@ export default function Booking() {
   const handleConfirm = async () => {
     if (!canContinue || !selectedSlotId || !selectedDate) return;
 
+    // --- ANTI-SPAM CHECK ---
+    const lastBooking = localStorage.getItem('fade_last_booking');
+    if (lastBooking) {
+      const minutesSinceLast = (Date.now() - parseInt(lastBooking, 10)) / (1000 * 60);
+      if (minutesSinceLast < 30) {
+        setSpamError(`Por seguridad, debés esperar ${Math.ceil(30 - minutesSinceLast)} minutos para realizar otra reserva.`);
+        return;
+      }
+    }
+    // -----------------------
+
     setStep('processing');
 
     const dateKey = formatDateKey(currentYear, currentMonth, selectedDate);
@@ -176,6 +188,9 @@ export default function Booking() {
       setStep('info');
       return;
     }
+
+    // Guardar marca de tiempo para anti-spam
+    localStorage.setItem('fade_last_booking', Date.now().toString());
 
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setStep('success');
@@ -407,6 +422,18 @@ export default function Booking() {
                     <span className="text-base md:text-lg font-bold font-[family-name:var(--font-syne)] text-black">{selectedTime} hs</span>
                   </div>
                 </div>
+                
+                <AnimatePresence>
+                  {spamError && (
+                    <motion.div initial={{ opacity: 0, height: 0, y: -10 }} animate={{ opacity: 1, height: 'auto', y: 0 }} exit={{ opacity: 0, height: 0 }} className="mb-4 overflow-hidden">
+                      <div className="bg-red-50 border border-red-100 p-3 flex flex-col gap-1 items-center justify-center text-center">
+                        <span className="text-red-500 font-semibold text-xs uppercase tracking-wider font-[family-name:var(--font-syne)]">Bloqueo de Seguridad</span>
+                        <p className="text-xs text-red-400/90 font-[family-name:var(--font-space)]">{spamError}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
                 <button onClick={handleConfirm} className="btn-primary w-full">Confirmar Turno</button>
               </motion.div>
             )}
@@ -428,8 +455,7 @@ export default function Booking() {
                 <p className="text-sm text-black/35 text-center mb-2 font-[family-name:var(--font-space)]">
                   {selectedDate} de {monthNames[currentMonth]} a las {selectedTime} hs
                 </p>
-                <p className="text-xs text-black/15 text-center mb-8">¡Te esperamos, {clientName}!</p>
-                <button onClick={resetBooking} className="btn-secondary">Reservar Otro Turno</button>
+                <p className="text-xs text-black/15 text-center mb-4">¡Te esperamos, {clientName}!</p>
               </motion.div>
             )}
           </AnimatePresence>
