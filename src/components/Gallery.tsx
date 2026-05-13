@@ -17,7 +17,7 @@ const DEFAULT_ITEMS: GalleryItem[] = [
   { id: '2', type: 'image', src: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80', alt: 'Corte Texturizado', span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1' },
   { id: '3', type: 'image', src: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80', alt: 'El Proceso', span: 'col-span-1 md:col-span-1 row-span-2 md:row-span-2' },
   { id: '4', type: 'image', src: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=80', alt: 'Diseño con Navaja', span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1' },
-  { id: '5', type: 'image', src: 'https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?w=600&q=80', alt: 'Escultura de Barba', span: 'col-span-2 md:col-span-1 row-span-1 md:row-span-1' },
+  { id: '5', type: 'image', src: 'https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?w=600&q=80', alt: 'Escultura de Barba', span: 'col-span-2 md:col-span-1 row-span-2 md:row-span-1' },
   { id: '6', type: 'image', src: 'https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=800&q=80', alt: 'Fade Cero', span: 'col-span-2 md:col-span-3 row-span-1 md:row-span-1' },
 ];
 
@@ -32,17 +32,20 @@ export default function Gallery() {
         .order('position', { ascending: true });
 
       if (data && data.length > 0) {
-        const items: GalleryItem[] = data.map((item: { position: number; media_type: string; src_url: string; alt: string; span: string }) => ({
-          id: String(item.position),
-          type: item.media_type as 'image' | 'video',
-          src: item.src_url,
-          alt: item.alt,
-          span: item.span,
-        }));
-
         const merged = DEFAULT_ITEMS.map(defaultItem => {
-          const uploaded = items.find(i => i.id === defaultItem.id);
-          return uploaded || defaultItem;
+          const uploaded = data.find((item: any) => String(item.position) === defaultItem.id);
+          
+          if (uploaded) {
+            return {
+              ...defaultItem,
+              type: uploaded.media_type as 'image' | 'video',
+              src: uploaded.src_url,
+              alt: uploaded.alt,
+              // IMPORTANTE: Mantenemos el span de defaultItem (el código)
+              // en lugar de usar el guardado en base de datos.
+            };
+          }
+          return defaultItem;
         });
 
         setGalleryItems(merged);

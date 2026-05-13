@@ -18,12 +18,12 @@ interface GallerySlot {
 
 /* Disposición fija del bento — 6 posiciones con aspect ratio para el crop */
 const BENTO_LAYOUT = [
-  { position: 1, span: 'col-span-2 md:col-span-2 row-span-2 md:row-span-2', defaultAlt: 'Foto 1', cropAspect: 0.93 },
-  { position: 2, span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1', defaultAlt: 'Foto 2', cropAspect: 0.92 },
-  { position: 3, span: 'col-span-1 md:col-span-1 row-span-2 md:row-span-2', defaultAlt: 'Foto 3', cropAspect: 0.45 },
-  { position: 4, span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1', defaultAlt: 'Foto 4', cropAspect: 0.92 },
-  { position: 5, span: 'col-span-2 md:col-span-1 row-span-1 md:row-span-1', defaultAlt: 'Foto 5', cropAspect: 0.92 },
-  { position: 6, span: 'col-span-2 md:col-span-3 row-span-1 md:row-span-1', defaultAlt: 'Foto 6', cropAspect: 2.88 },
+  { position: 1, span: 'col-span-2 md:col-span-2 row-span-2 md:row-span-2', defaultAlt: 'Foto 1', cropAspect: 1 },
+  { position: 2, span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1', defaultAlt: 'Foto 2', cropAspect: 1 },
+  { position: 3, span: 'col-span-1 md:col-span-1 row-span-2 md:row-span-2', defaultAlt: 'Foto 3', cropAspect: 0.5 },
+  { position: 4, span: 'col-span-1 md:col-span-1 row-span-1 md:row-span-1', defaultAlt: 'Foto 4', cropAspect: 1 },
+  { position: 5, span: 'col-span-2 md:col-span-1 row-span-2 md:row-span-1', defaultAlt: 'Foto 5', cropAspect: 1 },
+  { position: 6, span: 'col-span-2 md:col-span-3 row-span-1 md:row-span-1', defaultAlt: 'Foto 6', cropAspect: 2.5 },
 ];
 
 /* Generar imagen recortada */
