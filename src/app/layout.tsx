@@ -16,12 +16,15 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Fade District | Barbería Premium",
+  title: "Fade Distric",
   description:
     "Donde la precisión se encuentra con el arte. Barbería premium que construye confianza, un fade a la vez. Reservá tu turno hoy.",
   keywords: ["barbería", "fade", "corte", "premium", "Buenos Aires", "barbershop", "turnos"],
+  icons: {
+    icon: "/assets/logo-fadedistrict-enpng.png",
+  },
   openGraph: {
-    title: "Fade District | Barbería Premium",
+    title: "Fade Distric",
     description: "Donde la precisión se encuentra con el arte. Construyendo confianza, un fade a la vez.",
     type: "website",
   },
