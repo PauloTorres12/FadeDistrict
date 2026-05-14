@@ -72,6 +72,14 @@ export default function Booking() {
     };
 
     fetchDatesWithSlots();
+
+    // Re-cargar automáticamente los datos si el usuario vuelve a la pestaña
+    const onFocus = () => fetchDatesWithSlots();
+    window.addEventListener('focus', onFocus);
+    
+    return () => {
+      window.removeEventListener('focus', onFocus);
+    };
   }, [currentMonth, currentYear]);
 
   // Fetch available slots for a specific date
