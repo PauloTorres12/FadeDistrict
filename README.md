@@ -1,4 +1,4 @@
-#  Fade District — Barbería Premium
+#  Fade Distric — Barbería Premium
 
 <div align="center">
 
