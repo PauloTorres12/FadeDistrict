@@ -74,11 +74,18 @@ export default function Booking() {
     fetchDatesWithSlots();
 
     // Re-cargar automáticamente los datos si el usuario vuelve a la pestaña
-    const onFocus = () => fetchDatesWithSlots();
-    window.addEventListener('focus', onFocus);
+    const onVisibilityOrFocus = () => {
+      if (document.visibilityState === 'visible') {
+        fetchDatesWithSlots();
+      }
+    };
+    
+    document.addEventListener('visibilitychange', onVisibilityOrFocus);
+    window.addEventListener('focus', onVisibilityOrFocus);
     
     return () => {
-      window.removeEventListener('focus', onFocus);
+      document.removeEventListener('visibilitychange', onVisibilityOrFocus);
+      window.removeEventListener('focus', onVisibilityOrFocus);
     };
   }, [currentMonth, currentYear]);
 
