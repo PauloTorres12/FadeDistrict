@@ -432,9 +432,20 @@ export default function Booking() {
                     <span className="text-xs md:text-sm text-black/40">Fecha</span>
                     <span className="text-sm md:text-base font-medium text-black">{selectedDate} de {monthNames[currentMonth]}, {currentYear}</span>
                   </div>
-                  <div className="flex justify-between items-center px-4 md:px-6 py-4 bg-black/[0.015]">
+                  <div className="flex justify-between items-center px-4 md:px-6 py-4 border-b border-black/5">
                     <span className="text-xs md:text-sm text-black/40">Horario</span>
                     <span className="text-base md:text-lg font-bold font-[family-name:var(--font-syne)] text-black">{selectedTime} hs</span>
+                  </div>
+                  <div className="flex justify-between items-center px-4 md:px-6 py-4 bg-black/[0.015]">
+                    <span className="text-xs md:text-sm text-black/40">Ubicación</span>
+                    <a 
+                      href="https://maps.app.goo.gl/wcVpfwFbV5ToMKSh6" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-xs md:text-sm font-medium text-black underline decoration-black/30 underline-offset-4 hover:decoration-black transition-colors text-right"
+                    >
+                      Caseros 181, Villa Cura Brochero
+                    </a>
                   </div>
                 </div>
                 
@@ -463,14 +474,23 @@ export default function Booking() {
 
             {step === 'success' && (
               <motion.div key="success" variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4 }} className="flex flex-col items-center justify-center py-12">
-                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', damping: 15, stiffness: 300, delay: 0.1 }} className="w-16 h-16 rounded-full bg-black flex items-center justify-center mb-6">
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', damping: 15, stiffness: 300, delay: 0.1 }} className="w-16 h-16 rounded-full bg-black flex items-center justify-center" style={{ marginTop: '20px', marginBottom: '24px' }}>
                   <Check size={28} className="text-white" />
                 </motion.div>
-                <h3 className="text-xl font-bold font-[family-name:var(--font-syne)] mb-2">Turno Confirmado</h3>
-                <p className="text-sm text-black/35 text-center mb-2 font-[family-name:var(--font-space)]">
+                <h3 className="text-xl font-bold font-[family-name:var(--font-syne)] text-black" style={{ marginBottom: '12px' }}>Turno Confirmado</h3>
+                <p className="text-sm text-black text-center font-[family-name:var(--font-space)]" style={{ marginBottom: '2px' }}>
                   {selectedDate} de {monthNames[currentMonth]} a las {selectedTime} hs
                 </p>
-                <p className="text-xs text-black/15 text-center mb-4">¡Te esperamos, {clientName}!</p>
+                <a 
+                  href="https://maps.app.goo.gl/wcVpfwFbV5ToMKSh6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-black underline decoration-black/30 underline-offset-4 hover:decoration-black transition-colors text-center block"
+                  style={{ marginBottom: '24px' }}
+                >
+                  Caseros 181, Villa Cura Brochero
+                </a>
+                <p className="text-sm text-black text-center" style={{ marginBottom: '8px' }}>¡Te esperamos, {clientName}!</p>
               </motion.div>
             )}
           </AnimatePresence>

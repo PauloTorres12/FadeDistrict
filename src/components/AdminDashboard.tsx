@@ -101,7 +101,7 @@ export default function AdminDashboard() {
               <label className="text-[10px] text-black/30 uppercase tracking-wider block mb-1.5">Email</label>
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-black/[0.02] border border-black/5 px-4 py-3 text-sm text-black outline-none focus:border-black/15 transition-colors font-[family-name:var(--font-space)]"
-                placeholder="admin@fadedistrict.com" />
+                placeholder="admin@barberia.com" />
             </div>
             <div>
               <label className="text-[10px] text-black/30 uppercase tracking-wider block mb-1.5">Contraseña</label>
